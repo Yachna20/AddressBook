@@ -61,7 +61,7 @@ namespace Address
                     Console.WriteLine(name + " is exists");
                     Console.WriteLine("To edit details Enter\n1Lastname\n2.Address\n3.City\n4.State\n5.Zip\n6.Phonenumber\n7.Email");
                     int choice = Convert.ToInt32(Console.ReadLine());
-                    switch(choice)
+                    switch (choice)
                     {
                         case 1:
                             Console.WriteLine("Enter new Lastname");
@@ -85,7 +85,7 @@ namespace Address
                             break;
                         case 5:
                             Console.WriteLine("Enter new Zip");
-                            int newZip =Convert.ToInt32( Console.ReadLine());
+                            int newZip = Convert.ToInt32(Console.ReadLine());
 
                             record.Zip = newZip;
                             break;
@@ -99,7 +99,7 @@ namespace Address
                             string newEmail = Console.ReadLine();
                             record.Email = newEmail;
                             break;
-                     }
+                    }
                     return;
                 }
                 else
@@ -108,6 +108,27 @@ namespace Address
                 }
             }
         }
+            public void DeleteContact()
+            {
+                Console.WriteLine("To delete contact enter contact firstname");
+                string name = Console.ReadLine();
+                foreach (var record in data.ToList())
+                {
+                    if (data.Contains(record))
+                    {
+                        try
+                        {
+                            data.Remove(record);
+                            Console.WriteLine("Record deleted Successfully");
+                        }
+                        catch (Exception w)
+                        {
+                            Console.WriteLine(w.Message);
+                        }
+                    }
+                }
+            }
+        }
 
     }
-}
+
